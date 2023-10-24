@@ -1,0 +1,588 @@
+
+<!-- saved from url=(0035)https://phillipi.github.io/pix2pix/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+<!--<script type="text/javascript" async="" src="./Image-to-Image Translation with Conditional Adversarial Networks_files/js"></script><script async="" src="./Image-to-Image Translation with Conditional Adversarial Networks_files/analytics.js"></script><script src="./Image-to-Image Translation with Conditional Adversarial Networks_files/jsapi" type="text/javascript"></script>-->
+
+<!--<script type="text/javascript">google.load("jquery", "1.3.2");</script>-->
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight:300;
+		font-size:17px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	h1 {
+		font-weight:300;
+        font-size: 30px;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		        15px 15px 0 0px #fff, /* The fourth layer */
+		        15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		        20px 20px 0 0px #fff, /* The fifth layer */
+		        20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		        25px 25px 0 0px #fff, /* The fifth layer */
+		        25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}
+
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+    table td, table td * {
+        vertical-align: top;
+    }
+</style>
+
+
+  
+	  <title>Layout Sequence Prediction From Noisy Mobile Modality</title>
+      <meta property="og:image" content="https://phillipi.github.io/pix2pix/images/teaser_for_fb_v4.png">
+      <meta property="og:title" content="Layout Sequence Prediction From Noisy Mobile Modality">
+  <style data-styled="active" data-styled-version="5.3.8"></style></head>
+
+  <body data-new-gr-c-s-check-loaded="14.1134.0" data-gr-ext-installed="">
+    <br>
+          <center>
+          	<span style="font-size:36px">Layout Sequence Prediction From Noisy Mobile Modality</span><br><br>
+	  		  <table align="center" width="750px">
+	  			  <tbody><tr>
+	  	              <td align="center" width="150px">
+	  					<center>
+	  						<span style="font-size:18px"><a href="https://github.com/Hai-chao-Zhang/">Haichao Zhang</a><sup>1</sup></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align="center" width="150px">
+	  					<center>
+	  						<span style="font-size:18px"><a href="https://sites.google.com/view/homepage-of-yi-xu">Yi Xu</a><sup>1</sup></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align="center" width="150px">
+	  					<center>
+	  						<span style="font-size:18px"><a href="https://www.linkedin.com/in/hongsheng-lu-178486102/">Hongsheng Lu</a><sup>2</sup></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align="center" width="150px">
+	  					<center>
+	  						<span style="font-size:18px"><a href="https://www.linkedin.com/in/takashimizu/">Takayuki Shimizu</a><sup>2</sup></span>
+		  		  		</center>
+		  		  	  </td>
+					  <td align="center" width="150px">
+	  					<center>
+	  						<span style="font-size:18px"><a href="http://www1.ece.neu.edu/~yunfu/">Yun Fu</a><sup>1</sup></span>
+		  		  		</center>
+		  		  	  </td>
+			  </tr></tbody></table><br>
+              <span style="font-size:18px">
+			  	  <table align="center" width="500px">
+	  			  <tbody><tr>
+	  	              <td align="center" width="250px">
+	  					<center>
+	  						<span style="font-size:18px"><sup>1</sup><a href="https://www.northeastern.edu/">Northeastern University</a></span>
+		  		  		</center>
+					  </td>
+			  	      <td align="center" width="250px">
+	  					<center>
+	  						<span style="font-size:18px"><sup>2</sup><a href="https://amrd.toyota.com/division/itl/">Toyota Motor North America</a></span>
+		  		  		</center>
+					  </td>			  
+			  </tr></tbody></table>
+			  
+			  </span><br>
+              <span style="font-size:18px">In ACM MM 2023</span><br><br>
+
+	  		  <table align="center" width="450px">
+	  			  <tbody><tr>
+	  	              <td align="center" width="50px">
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://arxiv.org/abs/2310.06138">[Arxiv]</a>
+		  		  		</span></center>
+		  		  	  </td>
+	  	              <td align="center" width="50px">
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://github.com/Hai-chao-Zhang/LTrajDiff">[GitHub] <br>(coming soon)</a></span>
+		  		  		</center>
+		  		  	  </td>
+					  <td align="center" width="50px">
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://youtu.be/WwtIAWEfbVM">[Video]</a></span>
+		  		  		</center>
+		  		  	  </td>
+					  <td align="center" width="50px">
+	  					<center>
+	  						<span style="font-size:24px"><a href="assets/poster_1082_435.pdf">[Poster]</a></span>
+		  		  		</center>
+		  		  	  </td>
+					  <td align="center" width="50px">
+	  					<center>
+	  						<span style="font-size:24px"><a href="https://doi.org/10.1145/3581783.3611936">[Paper]</a></span>
+		  		  		</center>
+		  		  	  </td>
+			  </tr></tbody></table>
+          </center>
+
+<!--   		  <br><br>
+		  <hr> -->
+
+  		  <br>
+  		  <table align="center" width="900px">
+  			  <tbody><tr>
+  	              <td width="400px">
+  					<center>
+  	                	<a href="assets/head.png"><img class="" src="./assets/head.png" height="360px"></a><br>
+					</center>
+  	              </td>
+                </tr>
+  	              <tr><td width="400px">
+                      <center>
+  	                	<span style="font-size:14px"><i>Real-World Scenario with Obstructed Cameras and Missing Objects </i>
+                      <center>
+  	              </center></span></center></td>
+
+  		  </tr></tbody></table>
+
+
+
+
+  		  <center><h1>Abstract</h1></center><table align="center" width="850px">
+	  		  
+	  		  <tbody><tr>
+	  		  	<td>
+	  		    </td>
+	  		  </tr>
+			</tbody></table>
+				Trajectory prediction plays a vital role in understanding pedestrian movement for applications such as autonomous driving and robotics. Current trajectory prediction models depend on long, complete, and accurately observed sequences from visual modalities. Nevertheless, real-world situations often involve obstructed cameras, missed objects, or objects out of sight due to environmental factors, leading to incomplete or noisy trajectories. To overcome these limitations, we propose \textbf{LTrajDiff}, a novel approach that treats objects obstructed or out of sight as equally important as those with fully visible trajectories. LTrajDiff utilizes sensor data from mobile phones to surmount out-of-sight constraints, albeit introducing new challenges such as modality fusion, noisy data, and the absence of spatial layout and object size information. We employ a denoising diffusion model to predict precise layout sequences from noisy mobile data using a coarse-to-fine diffusion strategy, incorporating the Random Mask Strategy, Siamese Masked Encoding Module, and Modality Fusion Module. Our model predicts layout sequences by implicitly inferring object size and projection status from a single reference timestamp or significantly obstructed sequences. Achieving state-of-the-art results in randomly obstructed experiments, our model outperforms other baselines in extremely short input experiments, illustrating the effectiveness of leveraging noisy mobile data for layout sequence prediction. In summary, our approach offers a promising solution to the challenges faced by layout sequence and trajectory prediction models in real-world settings, paving the way for utilizing sensor data from mobile phones to accurately predict pedestrian bounding box trajectories. To the best of our knowledge, this is the first work that addresses severely obstructed and extremely short layout sequences by combining vision with noisy mobile modality, making it the pioneering work in the field of layout sequence trajectory prediction.
+  		  <br><br>
+		  <hr>
+
+
+	  <!-- NETWORK ARCHITECTURE, TRY THE MODEL -->
+<!-- 		<center><h1>Try our code</h1></center>-->
+<!--		<center><h1>Code</h1></center>-->
+  		  <center>
+				 <span style="font-size:28px">Code coming soon!</span></i>			  	 
+<!--
+				<div style="width:600px; text-align:left">
+					<span style="font-size:28px">&nbsp;Recommended version: <a href="https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix">[PyTorch]</a></span><br>
+					<span style="font-size:28px">&nbsp;Original code: <a href="https://github.com/phillipi/pix2pix">[Torch]</a></span>
+				</div>
+                    <br>
+                    <div style="width:400px; text-align:left">
+                    Ports of our code:<br>
+										<a href="https://www.tensorflow.org/tutorials/generative/pix2pix">[Tensorflow]</a> (tutorial on Tensorflow Core)<br>
+                    <a href="https://github.com/affinelayer/pix2pix-tensorflow">[Tensorflow]</a> (implementation by <a href="https://github.com/christopherhesse">Christopher Hesse</a>)<br>
+                    <a href="https://github.com/yenchenlin/pix2pix-tensorflow">[Tensorflow]</a> (implementation by <a href="https://github.com/yenchenlin">Yen-Chen Lin</a>)<br>
+                    <a href="https://github.com/pfnet-research/chainer-pix2pix">[Chainer]</a><a> (implementation by </a><a href="https://github.com/pfnet-research">pfnet-research</a>)<br>
+                    <a href="https://github.com/tdeboissiere/DeepLearningImplementations/tree/master/pix2pix">[Keras]</a> (implementation by <a href="https://github.com/tdeboissiere">Thibault de Boissiere</a>)<br>
+										<a href="https://resources.wolframcloud.com/NeuralNetRepository/resources/Pix2pix-Photo-to-Street-Map-Translation">[Wolfram Cloud]</a> (implementation by Wolfram team)
+                </div>
+-->
+
+			  <br>
+			  </center><table align="center" width="800px">
+			  <tbody><tr></tr>
+		  </tbody></table>
+
+<!-- <a href="http://www.eecs.berkeley.edu/~rich.zhang/projects/2016_colorization/files/demo_v0/colorization_release_v0.caffemodel">[Model 129MB]</span> -->
+
+      	  <br>
+		  <hr>
+
+			<center><h1>Paper</h1></center>
+			<table align="center" width="700" px="">
+			          <tbody><tr>
+			          <td><center><a href="https://arxiv.org/abs/2310.06138"><img class="layered-paper-big" style="height:175px" src="assets/paper_pdf_thumb.png"></a></center></td>
+			          <td><br><br><br><span style="font-size:12pt">Haichao Zhang, Yi Xu, Hongsheng Lu, Takayuki Shimizu, Yun Fu</span><br>
+			          <b><span style="font-size:12pt">Layout Sequence Prediction From Noisy Mobile Modality</span></b><br>
+			          <span style="font-size:12pt">ACM MM, 2023 (<a href="https://arxiv.org/abs/2310.06138">Paper</a>)</span>
+			          </td>
+								</tr>
+					</tbody></table>
+								<br>
+	
+          <table align="center" width="400px">
+            <tbody>
+              <tr>
+                <td>
+                  <center>
+                    <span style="font-size:22px">
+                      <a href="./assets/bibtex_mm_LTrajDiff.txt" target="_blank">[BibTex]</a>
+                    </span>
+					  
+					<section class="section" id="BibTeX">
+					<div align="left">
+<!--						<h2 class="title">BibTeX</h2>-->
+						<pre><code>
+
+@inproceedigs{Haichao2023LTrajDiff,
+title={Layout Sequence Prediction From Noisy Mobile Modality},
+author={Haichao Zhang, Yi Xu, Hongsheng Lu, Takayuki Shimizu, and Yun Fu},
+booktitle={In Proceedings of the 31st ACM International Conference on Multimedia (MM '23)},
+year={2023}
+}
+					</code></pre>
+						</div>
+					  </section>
+                  </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+			
+		  <br><br>
+
+<!--
+          <hr>
+          	  <table align="center" width="1100px">
+          		  <tbody><tr>
+                        <td width="400px">
+               					<left>
+                		  <center><h1><a href="https://affinelayer.com/pixsrv/">Interactive Demo</a><br><span style="font-size:18px">(made by <a href="https://github.com/christopherhesse">Christopher Hesse</a>)</span></h1></center>
+                          <center><a href="https://affinelayer.com/pixsrv/"><img width="400px" src="./Image-to-Image Translation with Conditional Adversarial Networks_files/edges2cats.jpg"></a></center>
+                  </left></td>
+              </tr>
+          </tbody></table>
+          <br>
+-->
+
+
+          <hr>
+	 		<center><h1>Expository Videos</h1></center>
+     		  <br>
+     		  <table align="center" width="1100px">
+     			  <tbody><tr>
+     	              <td width="300px">
+     					<center>
+<!--
+     						<span style="font-size:22px"><a href="https://www.youtube.com/embed/WwtIAWEfbVM">Oral Teaser</a></span><br>
+                            <iframe width="560" height="315" src="./Image-to-Image Translation with Conditional Adversarial Networks_files/u7kQ5lNfUfg.html" frameborder="0" allowfullscreen=""></iframe>
+-->
+							
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/WwtIAWEfbVM?si=ZhdPJ7vgMC2Isaw-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							
+     					    <div style="width:560px; text-align:center; font-size:14px">Two-minute papers</div>
+                        </center>
+     	              </td>
+
+<!--
+     	              <td width="300px">
+     					<center>
+     						<span style="font-size:22px"><a href="https://affinelayer.com/pix2pix/">Affinelayer blog post</a></span><br>
+     	                	<a href="https://affinelayer.com/pix2pix/"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/hesse_blog_post.png" width="270px"></a><br>
+     					<div style="width:270px; text-align:left; font-size:14px">Great explanation by Christopher Hesse, also documenting his <a href="https://github.com/affinelayer/pix2pix-tensorflow">tensorflow port</a> of our code.</div></center>
+     	              </td>
+-->
+
+
+                   </tr>
+     		  </tbody></table>
+	<!--
+		  <br><br>
+		  <hr>
+
+  		  <a name="bw_legacy"></a>
+
+  		  <center><h1>Experiments</h1></center>
+          Here we show comprehensive results from each experiment in our paper. Please see the paper for details on these experiments.<br>
+          <br>
+
+          <table align="center" width="600px">
+
+
+        <tbody><tr>
+        <td valign="top">
+  		  <b>Effect of the objective</b><br>
+          <a href="https://phillipi.github.io/pix2pix/images/index_cityscapes_loss_variations.html">Cityscapes</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/index_facades2_loss_variations.html">Facades</a><br>
+          <br>
+
+  		  <b>Effect of the generator architecture</b><br>
+          <a href="https://phillipi.github.io/pix2pix/images/index_cityscapes_generator_architecture_variations.html">Cityscapes</a><br>
+          <br>
+
+  		  <b>Effect of the discriminator patch scale</b><br>
+          <a href="https://phillipi.github.io/pix2pix/images/index_cityscapes_patchsize_variations.html">Cityscapes</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/index_facades2_patchsize_variations.html">Facades</a><br>
+          <br>
+      </td>
+      <td valign="top">
+  		  <b>Additional results</b><br>
+          <a href="https://phillipi.github.io/pix2pix/images/map2sat1_BtoA/latest_net_G_val/index.html">Map to aerial</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/sat2map1_AtoB/latest_net_G_val/index.html">Aerial to map</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/cityscapes_cGAN_AtoB/latest_net_G_val/index.html">Semantic segmentation</a><br>
+          <a href="./images/colorization/index.html">Colorization</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/att_night/latest_net_G_val/index.html">Day to night</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/sketch2photo_handbag/latest_net_G_val/index.html">Edges to handbags</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/sketch2photo_shoes/latest_net_G_val/index.html">Edges to shoes</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/sketch2photo_handbag/latest_net_G_sketch/index.html">Sketches to handbags</a><br>
+          <a href="https://phillipi.github.io/pix2pix/images/sketch2photo_shoes/latest_net_G_sketch/index.html">Sketches to shoes</a><br>
+          <br>
+-->
+
+<!--
+      </td>
+      </tr>
+          </tbody></table>
+
+
+  	  	<hr>
+
+	  <table align="center" width="1100px">
+		  <tbody><tr>
+              <td width="400px">
+     					<left>
+      		  <center><h1>Community contributions: <a href="https://twitter.com/search?vertical=default&amp;q=pix2pix&amp;src=typd">#pix2pix</a></h1></center>
+              People have used our code for many creative applications, often posted on twitter with the hashtag #pix2pix. Check them out <a href="https://twitter.com/search?vertical=default&amp;q=pix2pix&amp;src=typd">here</a>! Below we highlight just a few of the many:<br><br>
+
+      		  <table align="center" width="1100px">
+							<tbody><tr>
+      	              <td width="300px">
+      					<center>
+      						<span style="font-size:22px"><a href="https://www.nvidia.com/en-us/deep-learning-ai/ai-art-gallery/artists/scott-eaton/">Human Allocation of Space</a></span><br>
+      	                	<a href="https://www.nvidia.com/en-us/deep-learning-ai/ai-art-gallery/artists/scott-eaton/"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/scott_eaton.jpg" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="http://www.scott-eaton.com/">Scott Eaton</a> uses a customized version of pix2pix as a tool in his artwork, for example training a net to <a href="https://vimeo.com/345881421">translate from sketches and brush strokes to 3D renderings</a>. The sculpture above is an actual brozne cast derived from one of Scott's translated designs. You can find more of his AI-empowered artwork <a href="http://www.scott-eaton.com/category/creativeai">here</a>.</div></center>
+      	              </td>
+
+      	              <td width="300px">
+      					<center>
+      						<span style="font-size:22px"><a href="https://vimeo.com/260612034">Learning to See: Gloomy Sunday</a></span><br>
+      	                	<a href="https://vimeo.com/260612034"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/gloomy_sunday.png" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="http://www.memo.tv/">Memo Akten</a> used pix2pix to create the very compelling music video linked above, in which common household items, like a powercord, are moved around in a pantomine of crashing waves and blooming flowers. Then a pix2pix-based model translates the pantomine into renderings of the imagined objects.</div></center>
+      	              </td>
+
+      	              <td width="300px">
+      					<center>
+      						<span style="font-size:22px"><a href="https://nono.ma/suggestive-drawing">Suggestive Drawing</a></span><br>
+      	                	<a href="https://nono.ma/suggestive-drawing"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/suggestive_drawing.png" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="https://nono.ma/">Nono Martinez Alonso</a> used pix2pix for his masters thesis on human-AI collaboration for design. Different pix2pix models are used as aids for a human designer, where they "suggest" extensions, refinements, and completions of the designer's sketches.</div></center>
+      	              </td>
+
+              </tr>
+										
+      			  <tr>
+      	              <td width="300px">
+												<br>
+      					<center>
+      						<span style="font-size:22px"><a href="https://twitter.com/search?vertical=default&amp;q=edges2cats&amp;src=typd">#edges2cats</a></span><br>
+      	                	<a href="https://twitter.com/search?vertical=default&amp;q=edges2cats&amp;src=typd"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/cats_example.jpg" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="https://twitter.com/christophrhesse?lang=en">Christopher Hesse</a> trained our model on converting edge maps to photos of cats, and included this in his <a href="https://affinelayer.com/pixsrv/">interactive demo</a>. Apparently, this is what the Internet wanted most, and #edges2cats briefly <a href="https://www.youtube.com/watch?v=vbuE5CLRCDY">went viral</a>. The above cats were designed by Vitaly Vidmirov (<a href="https://twitter.com/vvid/status/834976420942204933">@vvid</a>).</div></center>
+      	              </td>
+
+      	              <td width="300px">
+      					<center>
+      						<span style="font-size:22px"><a href="https://www.youtube.com/watch?v=af_9LXhcebY">Alternative Face</a></span><br>
+      	                	<a href="https://www.youtube.com/watch?v=af_9LXhcebY"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/hardy_conway.jpg" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="https://quasimondo.com/">Mario Klingemann</a> used our code to translate the appearance of French singer Francoise Hardy onto Kellyanne Conway's infamous "alternative facts" interview. Interesting articles about it can be read <a href="http://nymag.com/selectall/2017/03/pix2pix-cat-drawing-tool-is-ai-at-its-best.html">here</a> and <a href="http://www.alphr.com/art/1005324/alternative-face-the-machine-that-puts-kellyanne-conway-s-words-into-a-french-singer-s">here</a>.</div></center>
+      	              </td>
+
+      	              <td width="300px">
+      					<center>
+      						<span style="font-size:22px"><a href="https://twitter.com/brannondorsey/status/808461108881268736">Person-to-Person</a></span><br>
+      	                	<a href="https://twitter.com/brannondorsey/status/808461108881268736"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/dorsey_kurzweil.jpg" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="https://brannondorsey.com/">Brannon Dorsey</a> recorded himself mimicking frames from a video of Ray Kurzweil giving a talk. He then used this data to train a Dorsey→Kurzweil translator, allowing him to become a kind of puppeter in control of Kurzweil's appearance.</div></center>
+      	              </td>
+
+                    </tr>
+
+                    <tr>
+        	              <td width="300px">
+                              <br>
+        					<center>
+        						<span style="font-size:22px"><a href="https://twitter.com/bgondouin/status/818571935529377792">Interactive Anime</a></span><br>
+        	                	<a href="https://twitter.com/bgondouin/status/818571935529377792"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/iPokemon.jpg" width="250px"></a><br>
+        					<div style="width:250px; text-align:left; font-size:14px"><a href="https://bgon.github.io/">Bertrand Gondouin</a> trained our method to translate sketches→Pokemon, resulting in an interactive drawing tool.</div></center>
+        	              </td>
+
+        	              <td width="300px">
+                              <br>
+        					<center>
+        						<span style="font-size:22px"><a href="http://www.k4ai.com/imageops/index.html">Background masking</a></span><br>
+        	                	<a href="http://www.k4ai.com/imageops/index.html"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/background_masking.jpg" width="250px"></a><br>
+        					<div style="width:250px; text-align:left; font-size:14px"><a href="https://twitter.com/kaihuchen?lang=en">Kaihu Chen</a> performed <a href="http://www.k4ai.com/tag/gan/index.html">a number of interesting experiments</a> using our method, including getting it to mask out the background of a portrait as shown above.</div></center>
+        	              </td>
+
+      	              <td width="300px">
+                          <br>
+      					<center>
+      						<span style="font-size:22px"><a href="http://colormind.io/blog/">Color palette completion</a></span><br>
+      	                	<a href="http://colormind.io/blog/"><img src="./Image-to-Image Translation with Conditional Adversarial Networks_files/color_palettes.jpg" width="250px"></a><br>
+      					<div style="width:250px; text-align:left; font-size:14px"><a href="http://colormind.io/blog/">Colormind</a> adapted our code to predict a complete 5-color palette given a subset of the palette as input. This application stretches the definition of what counts as "image-to-image translation" in an exciting way: if you can visualize your input/output data as images, then image-to-image methods are applicable! (not that this is necessarily the best choice of representation, just one to think about.)</div></center>
+      	              </td>
+
+                    </tr>
+      		  </tbody></table>
+              <br>
+        </left></td>
+    </tr>
+</tbody></table>
+
+        <hr>
+
+
+ 		  <a name="related_work"></a>
+ 		  <table align="center" width="1100px">
+ 			  <tbody><tr>
+ 	              <td width="400px">
+ 					<left>
+  		  <center><h1>Recent Related Work</h1></center>
+
+          <a href="https://arxiv.org/abs/1406.2661">Generative adversarial networks</a> have been vigorously explored in the last two years, and many conditional variants have been proposed. Please see the discussion of related work in <a href="https://arxiv.org/abs/1611.07004">our paper</a>. Below we point out three papers that especially influenced this work: the original GAN paper from Goodfellow et al., the <a href="https://github.com/soumith/dcgan.torch">DCGAN framework</a>, from which our code is derived, and the iGAN paper, from our lab, that first explored the idea of using GANs for mapping user strokes to images.
+
+  		  <br><br>
+
+  		   <br><br> 
+
+				Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. <b>Generative Adversarial Networks</b>. NIPS, 2014. <a href="https://arxiv.org/pdf/1406.2661v1.pdf">[PDF]</a><br>
+                <br>
+                Alec Radford, Luke Metz, Soumith Chintala. <b>Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</b>. ICLR, 2016. [<a href="https://arxiv.org/pdf/1511.06434v2.pdf">PDF</a>][<a href="https://github.com/soumith/dcgan.torch">Code</a>]<br>
+                <br>
+                Jun-Yan Zhu, Philipp Krahenbuhl, Eli Shechtman, Alexei A. Efros. <b>Generative Visual Manipulation on the Natural Image Manifold</b>. ECCV, 2016. [<a href="https://arxiv.org/pdf/1609.03552v2.pdf">PDF</a>][<a href="https://people.eecs.berkeley.edu/~junyanz/projects/gvm/">Webpage</a>][<a href="https://github.com/junyanz/iGAN">Code</a>]<br>
+
+			</left></td>
+		 </tr>
+
+         <tr>
+             <td width="400px">
+
+                 <br><br>
+                 Also, please check out our follow-up work on image-to-image translation *without* paired training examples:
+                 <br><br>
+                 Jun-Yan Zhu*, Taesung Park*, Phillip Isola, Alexei A. Efros. <b>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks</b>. ICCV, 2017. [<a href="https://arxiv.org/abs/1703.10593">PDF</a>][<a href="https://junyanz.github.io/CycleGAN/">Webpage</a>][<a href="https://github.com/junyanz/CycleGAN">Code</a>]<br>
+
+             </td>
+         </tr>
+
+	 </tbody></table>
+
+	  <br>
+	  <hr>
+	  <br>
+
+
+  		  <table align="center" width="1100px">
+  			  <tbody><tr>
+  	              <td>
+  					<left>
+	  		  <center><h1>Acknowledgements</h1></center>
+					We thank Richard Zhang, Deepak Pathak, and Shubham Tulsiani for helpful discussions. Thanks to Saining Xie for help with the HED edge detector. Thanks to the online community for exploring many applications of our work and pointing out typos and errors in the paper and code. This work was supported in part by NSF SMA-1514512, NGA NURI, IARPA via Air Force Research Laboratory, Intel Corp, Berkeley Deep Drive, and hardware donations by Nvidia. Disclaimer: The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of IARPA, AFRL or the U.S. Government.
+			</left>
+		</td>
+			 </tr>
+		</tbody></table>
+
+		<br><br>
+-->
+
+
+
+
+
+<div></div><div id="general-snackbar-root"></div></body>
+<!--
+<grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div>
+</template></grammarly-desktop-integration>
+-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ye8z9ngfss&amp;m=1c&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;cw=ffffff&amp;cb=000000" async="async"></script>
+</html>
