@@ -1,6 +1,7 @@
-@inproceedigs{Haichao2023LTrajDiff,
-title={Layout Sequence Prediction From Noisy Mobile Modality},
-author={Haichao Zhang, Yi Xu, Hongsheng Lu, Takayuki Shimizu, and Yun Fu},
-booktitle={In Proceedings of the 31st ACM International Conference on Multimedia (MM '23)},
-year={2023}
+@inproceedings{zhang2023layout,
+  title={Layout Sequence Prediction From Noisy Mobile Modality},
+  author={Zhang, Haichao and Xu, Yi and Lu, Hongsheng and Shimizu, Takayuki and Fu, Yun},
+  booktitle={Proceedings of the 31st ACM International Conference on Multimedia},
+  pages={3965--3974},
+  year={2023}
 }
